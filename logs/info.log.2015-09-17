@@ -1,0 +1,22 @@
+2015-09-17 11:25:03 [ main:1 ] - [ INFO ] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1693f17f: startup date [Thu Sep 17 11:25:03 EDT 2015]; root of context hierarchy
+2015-09-17 11:25:03 [ main:58 ] - [ INFO ] Loading XML bean definitions from class path resource [applicationContext.xml]
+2015-09-17 11:25:03 [ main:687 ] - [ INFO ] Loading properties file from URL [file:/C:/Users/hma/workspace/ABMonitor/target/classes/jdbc.properties]
+2015-09-17 11:25:04 [ main:1372 ] - [ INFO ] Using default implementation for ThreadExecutor
+2015-09-17 11:25:04 [ main:1392 ] - [ INFO ] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-09-17 11:25:04 [ main:1393 ] - [ INFO ] Quartz Scheduler v.2.2.1 created.
+2015-09-17 11:25:04 [ main:1395 ] - [ INFO ] RAMJobStore initialized.
+2015-09-17 11:25:04 [ main:1396 ] - [ INFO ] Scheduler meta-data: Quartz Scheduler (v2.2.1) 'SchedulerOne' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-09-17 11:25:04 [ main:1396 ] - [ INFO ] Quartz scheduler 'SchedulerOne' initialized from an externally provided properties instance.
+2015-09-17 11:25:04 [ main:1396 ] - [ INFO ] Quartz scheduler version: 2.2.1
+2015-09-17 11:25:04 [ main:1397 ] - [ INFO ] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@746dd488
+2015-09-17 11:25:04 [ main:1419 ] - [ INFO ] Starting beans in phase 2147483647
+2015-09-17 11:25:04 [ main:1419 ] - [ INFO ] Starting Quartz Scheduler now
+2015-09-17 11:25:04 [ main:1419 ] - [ INFO ] Scheduler SchedulerOne_$_NON_CLUSTERED started.
+2015-09-17 11:25:04 [ main:1421 ] - [ INFO ] AB Monitor Application Started

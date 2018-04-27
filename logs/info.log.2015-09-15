@@ -1,0 +1,449 @@
+2015-09-15 16:51:18 [ main:0 ] - [ INFO ] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3a18c8ca: startup date [Tue Sep 15 16:51:18 EDT 2015]; root of context hierarchy
+2015-09-15 16:51:18 [ main:47 ] - [ INFO ] Loading XML bean definitions from class path resource [applicationContext.xml]
+2015-09-15 16:51:19 [ main:374 ] - [ INFO ] Loading properties file from URL [file:/C:/Users/hma/workspace/ABMonitor/target/classes/jdbc.properties]
+2015-09-15 16:51:19 [ main:889 ] - [ INFO ] Using default implementation for ThreadExecutor
+2015-09-15 16:51:19 [ main:905 ] - [ INFO ] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-09-15 16:51:19 [ main:905 ] - [ INFO ] Quartz Scheduler v.2.2.1 created.
+2015-09-15 16:51:19 [ main:905 ] - [ INFO ] RAMJobStore initialized.
+2015-09-15 16:51:19 [ main:905 ] - [ INFO ] Scheduler meta-data: Quartz Scheduler (v2.2.1) 'SchedulerOne' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-09-15 16:51:19 [ main:905 ] - [ INFO ] Quartz scheduler 'SchedulerOne' initialized from an externally provided properties instance.
+2015-09-15 16:51:19 [ main:905 ] - [ INFO ] Quartz scheduler version: 2.2.1
+2015-09-15 16:51:19 [ main:905 ] - [ INFO ] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@2afd506
+2015-09-15 16:51:19 [ main:936 ] - [ INFO ] Starting beans in phase 2147483647
+2015-09-15 16:51:19 [ main:936 ] - [ INFO ] Starting Quartz Scheduler now
+2015-09-15 16:51:19 [ main:936 ] - [ INFO ] Scheduler SchedulerOne_$_NON_CLUSTERED started.
+2015-09-15 16:51:20 [ main:1685 ] - [ INFO ] Exception:
+org.postgresql.util.PSQLException: ERROR: duplicate key violates unique constraint "ab_report_pkey"  (seg20 etl4.gphd.local:1027 pid=746479)
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2102)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1835)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:257)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:500)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:388)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:334)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp.insert(GreenplumDAOImp.java:167)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$FastClassBySpringCGLIB$$9e0a77a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:717)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:653)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$EnhancerBySpringCGLIB$$3e67a0c4.insert(<generated>)
+	at com.tmg.Action.Main.main(Main.java:60)
+2015-09-15 16:51:20 [ main:1700 ] - [ INFO ] The failed inserted bean is: ProcessFile [failed=true, message=NOTICE:  2015-09-09 08:28:59.214846-05: ods.fn_fac_dbo_cmc_meme_member_ms('AMNY', '<NULL>') for source table s_fac_dbo_cmc_meme_member_ms
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_tran (like cdc.ds_transaction_register) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 92 at SQL statement
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_meme (like cdc.s_fac_dbo_cmc_meme_member_ms) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 93 at SQL statement
+NOTICE:  Log: 41 row(s) inserted into tmp_tran for AMNY client
+NOTICE:  Log: 41 row(s) inserted into tmp_meme for AMNY client
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_person_code_keys -- member table data - SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_person_code_keys -- member table data - meme_medcd_no for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_memeck_prsnids (src_id character varying (10) , src_bigint_key bigint, tgt_bigint_key bigint )on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 256 at SQL statement
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_keys for --MEME_CK for AMNY client
+NOTICE:  Log: 5 row(s) inserted into conv.conversion_person_keys for --SBSB_CK for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_code_value ( src_id character varying(10), src_varchar_key character varying(255), src_typ_key character varying(150), tgt_id character varying(20), tgt_client_id bigint, tgt_type_key character varying(30), tgt_bigint_key bigint, src_sys_rec_id character varying(255), ver bigint, vld_frm_dt timestamptz ) on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 375 at SQL statement
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_code_value_keys--SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_code_value_keys--MEDICAID for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_relation_keys -- member subscriber relation for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_attachment_source_keys for AMNY client
+NOTICE:  Log: 24 row(s) inserted into ods.person_code for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.persons for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_role for AMNY client
+NOTICE:  Log: 0 row(s) inserted into ods.code_value-- ssn for AMNY client
+NOTICE:  Log: 10 row(s) inserted into ods.code_value--medicaid for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_relation for AMNY client
+ERROR:  deadlock detectedERROR:  deadlock detected
+DETAIL:  Process 316186 waits for RowExclusiveLock on relation 59215560 of database 1490942; blocked by process 324668.
+Process 324668 waits for ExclusiveLock on relation 59930623 of database 1490942; blocked by process 316186.
+CONTEXT:  SQL statement "insert into cdc.ds_transaction_register ( trn_id, trn_evnt_typ, pubr_db_id, cmd_id, src_id, trn_evnt_ts, trn_descr, ver ) select trn_id,  $1 , pubr_db_id, cmd_id, src_id, clock_timestamp(), trn_descr, ver from tmp_tran"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 1036 at SQL statement
+Wed 09/09/2015  9:30:48.42
+F:\DW\ODS_Job_Control>rem SBSB 
+F:\DW\ODS_Job_Control>psql -h gpv2devsegedw1 -p 5433 -d testtmgdw -U test_edw_etl_svc -w -q -c "select ods.fn_fac_dbo_cmc_sbsb_subsc_vu(substring('AMNY',1,8),null)" 
+NOTICE:  2015-09-09 08:30:48.442169-05: ods.fn_fac_dbo_cmc_sbsb_subsc_vu('AMNY', '<NULL>') for source table s_fac_dbo_cmc_sbsb_subsc_vu
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+, JobStartTime=Wed Sep 09 09:28:07 EDT 2015, JobCompletedTime=Wed Sep 09 10:18:48 EDT 2015, fileName=AMNY_0005192302-09Sep2015-132806_014.log, fileBean=FileBean [date=2015-09-09, jobName=Amny, jobId=5192302], env=TST]
+2015-09-15 16:52:00 [ main:0 ] - [ INFO ] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@32bd8b9c: startup date [Tue Sep 15 16:52:00 EDT 2015]; root of context hierarchy
+2015-09-15 16:52:00 [ main:47 ] - [ INFO ] Loading XML bean definitions from class path resource [applicationContext.xml]
+2015-09-15 16:52:00 [ main:359 ] - [ INFO ] Loading properties file from URL [file:/C:/Users/hma/workspace/ABMonitor/target/classes/jdbc.properties]
+2015-09-15 16:52:01 [ main:827 ] - [ INFO ] Using default implementation for ThreadExecutor
+2015-09-15 16:52:01 [ main:858 ] - [ INFO ] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-09-15 16:52:01 [ main:858 ] - [ INFO ] Quartz Scheduler v.2.2.1 created.
+2015-09-15 16:52:01 [ main:858 ] - [ INFO ] RAMJobStore initialized.
+2015-09-15 16:52:01 [ main:858 ] - [ INFO ] Scheduler meta-data: Quartz Scheduler (v2.2.1) 'SchedulerOne' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-09-15 16:52:01 [ main:858 ] - [ INFO ] Quartz scheduler 'SchedulerOne' initialized from an externally provided properties instance.
+2015-09-15 16:52:01 [ main:858 ] - [ INFO ] Quartz scheduler version: 2.2.1
+2015-09-15 16:52:01 [ main:858 ] - [ INFO ] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@65ca7e4a
+2015-09-15 16:52:01 [ main:874 ] - [ INFO ] Starting beans in phase 2147483647
+2015-09-15 16:52:01 [ main:874 ] - [ INFO ] Starting Quartz Scheduler now
+2015-09-15 16:52:01 [ main:874 ] - [ INFO ] Scheduler SchedulerOne_$_NON_CLUSTERED started.
+2015-09-15 16:52:02 [ main:1638 ] - [ INFO ] Exception:
+org.postgresql.util.PSQLException: ERROR: duplicate key violates unique constraint "ab_report_pkey"  (seg20 etl4.gphd.local:1027 pid=746939)
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2102)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1835)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:257)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:500)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:388)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:334)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp.insert(GreenplumDAOImp.java:167)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$FastClassBySpringCGLIB$$9e0a77a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:717)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:653)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$EnhancerBySpringCGLIB$$66a550b7.insert(<generated>)
+	at com.tmg.Action.Main.main(Main.java:60)
+2015-09-15 16:52:02 [ main:1654 ] - [ INFO ] The failed inserted bean is: ProcessFile [failed=true, message=NOTICE:  2015-09-09 08:28:59.214846-05: ods.fn_fac_dbo_cmc_meme_member_ms('AMNY', '<NULL>') for source table s_fac_dbo_cmc_meme_member_ms
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_tran (like cdc.ds_transaction_register) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 92 at SQL statement
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_meme (like cdc.s_fac_dbo_cmc_meme_member_ms) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 93 at SQL statement
+NOTICE:  Log: 41 row(s) inserted into tmp_tran for AMNY client
+NOTICE:  Log: 41 row(s) inserted into tmp_meme for AMNY client
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_person_code_keys -- member table data - SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_person_code_keys -- member table data - meme_medcd_no for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_memeck_prsnids (src_id character varying (10) , src_bigint_key bigint, tgt_bigint_key bigint )on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 256 at SQL statement
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_keys for --MEME_CK for AMNY client
+NOTICE:  Log: 5 row(s) inserted into conv.conversion_person_keys for --SBSB_CK for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_code_value ( src_id character varying(10), src_varchar_key character varying(255), src_typ_key character varying(150), tgt_id character varying(20), tgt_client_id bigint, tgt_type_key character varying(30), tgt_bigint_key bigint, src_sys_rec_id character varying(255), ver bigint, vld_frm_dt timestamptz ) on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 375 at SQL statement
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_code_value_keys--SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_code_value_keys--MEDICAID for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_relation_keys -- member subscriber relation for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_attachment_source_keys for AMNY client
+NOTICE:  Log: 24 row(s) inserted into ods.person_code for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.persons for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_role for AMNY client
+NOTICE:  Log: 0 row(s) inserted into ods.code_value-- ssn for AMNY client
+NOTICE:  Log: 10 row(s) inserted into ods.code_value--medicaid for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_relation for AMNY client
+ERROR:  deadlock detectedERROR:  deadlock detected
+DETAIL:  Process 316186 waits for RowExclusiveLock on relation 59215560 of database 1490942; blocked by process 324668.
+Process 324668 waits for ExclusiveLock on relation 59930623 of database 1490942; blocked by process 316186.
+CONTEXT:  SQL statement "insert into cdc.ds_transaction_register ( trn_id, trn_evnt_typ, pubr_db_id, cmd_id, src_id, trn_evnt_ts, trn_descr, ver ) select trn_id,  $1 , pubr_db_id, cmd_id, src_id, clock_timestamp(), trn_descr, ver from tmp_tran"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 1036 at SQL statement
+Wed 09/09/2015  9:30:48.42
+F:\DW\ODS_Job_Control>rem SBSB 
+F:\DW\ODS_Job_Control>psql -h gpv2devsegedw1 -p 5433 -d testtmgdw -U test_edw_etl_svc -w -q -c "select ods.fn_fac_dbo_cmc_sbsb_subsc_vu(substring('AMNY',1,8),null)" 
+NOTICE:  2015-09-09 08:30:48.442169-05: ods.fn_fac_dbo_cmc_sbsb_subsc_vu('AMNY', '<NULL>') for source table s_fac_dbo_cmc_sbsb_subsc_vu
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+, JobStartTime=Wed Sep 09 09:28:07 EDT 2015, JobCompletedTime=Wed Sep 09 10:18:48 EDT 2015, fileName=AMNY_0005192302-09Sep2015-132806_014.log, fileBean=FileBean [date=2015-09-09, jobName=Amny, jobId=5192302], env=TST]
+2015-09-15 16:52:27 [ main:0 ] - [ INFO ] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@32bd8b9c: startup date [Tue Sep 15 16:52:27 EDT 2015]; root of context hierarchy
+2015-09-15 16:52:28 [ main:32 ] - [ INFO ] Loading XML bean definitions from class path resource [applicationContext.xml]
+2015-09-15 16:52:28 [ main:375 ] - [ INFO ] Loading properties file from URL [file:/C:/Users/hma/workspace/ABMonitor/target/classes/jdbc.properties]
+2015-09-15 16:52:28 [ main:858 ] - [ INFO ] Using default implementation for ThreadExecutor
+2015-09-15 16:52:28 [ main:874 ] - [ INFO ] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-09-15 16:52:28 [ main:874 ] - [ INFO ] Quartz Scheduler v.2.2.1 created.
+2015-09-15 16:52:28 [ main:874 ] - [ INFO ] RAMJobStore initialized.
+2015-09-15 16:52:28 [ main:874 ] - [ INFO ] Scheduler meta-data: Quartz Scheduler (v2.2.1) 'SchedulerOne' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-09-15 16:52:28 [ main:874 ] - [ INFO ] Quartz scheduler 'SchedulerOne' initialized from an externally provided properties instance.
+2015-09-15 16:52:28 [ main:874 ] - [ INFO ] Quartz scheduler version: 2.2.1
+2015-09-15 16:52:28 [ main:874 ] - [ INFO ] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@3a7d758a
+2015-09-15 16:52:28 [ main:890 ] - [ INFO ] Starting beans in phase 2147483647
+2015-09-15 16:52:28 [ main:890 ] - [ INFO ] Starting Quartz Scheduler now
+2015-09-15 16:52:28 [ main:890 ] - [ INFO ] Scheduler SchedulerOne_$_NON_CLUSTERED started.
+2015-09-15 16:52:29 [ main:1732 ] - [ INFO ] Exception:
+org.postgresql.util.PSQLException: ERROR: duplicate key violates unique constraint "ab_report_pkey"  (seg20 etl4.gphd.local:1027 pid=747250)
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2102)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1835)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:257)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:500)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:388)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:334)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp.insert(GreenplumDAOImp.java:167)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$FastClassBySpringCGLIB$$9e0a77a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:717)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:653)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$EnhancerBySpringCGLIB$$fea35380.insert(<generated>)
+	at com.tmg.Action.Main.main(Main.java:60)
+2015-09-15 16:52:29 [ main:1748 ] - [ INFO ] The failed inserted bean is: ProcessFile [failed=true, message=NOTICE:  2015-09-09 08:28:59.214846-05: ods.fn_fac_dbo_cmc_meme_member_ms('AMNY', '<NULL>') for source table s_fac_dbo_cmc_meme_member_ms
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_tran (like cdc.ds_transaction_register) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 92 at SQL statement
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_meme (like cdc.s_fac_dbo_cmc_meme_member_ms) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 93 at SQL statement
+NOTICE:  Log: 41 row(s) inserted into tmp_tran for AMNY client
+NOTICE:  Log: 41 row(s) inserted into tmp_meme for AMNY client
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_person_code_keys -- member table data - SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_person_code_keys -- member table data - meme_medcd_no for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_memeck_prsnids (src_id character varying (10) , src_bigint_key bigint, tgt_bigint_key bigint )on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 256 at SQL statement
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_keys for --MEME_CK for AMNY client
+NOTICE:  Log: 5 row(s) inserted into conv.conversion_person_keys for --SBSB_CK for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_code_value ( src_id character varying(10), src_varchar_key character varying(255), src_typ_key character varying(150), tgt_id character varying(20), tgt_client_id bigint, tgt_type_key character varying(30), tgt_bigint_key bigint, src_sys_rec_id character varying(255), ver bigint, vld_frm_dt timestamptz ) on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 375 at SQL statement
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_code_value_keys--SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_code_value_keys--MEDICAID for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_relation_keys -- member subscriber relation for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_attachment_source_keys for AMNY client
+NOTICE:  Log: 24 row(s) inserted into ods.person_code for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.persons for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_role for AMNY client
+NOTICE:  Log: 0 row(s) inserted into ods.code_value-- ssn for AMNY client
+NOTICE:  Log: 10 row(s) inserted into ods.code_value--medicaid for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_relation for AMNY client
+ERROR:  deadlock detectedERROR:  deadlock detected
+DETAIL:  Process 316186 waits for RowExclusiveLock on relation 59215560 of database 1490942; blocked by process 324668.
+Process 324668 waits for ExclusiveLock on relation 59930623 of database 1490942; blocked by process 316186.
+CONTEXT:  SQL statement "insert into cdc.ds_transaction_register ( trn_id, trn_evnt_typ, pubr_db_id, cmd_id, src_id, trn_evnt_ts, trn_descr, ver ) select trn_id,  $1 , pubr_db_id, cmd_id, src_id, clock_timestamp(), trn_descr, ver from tmp_tran"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 1036 at SQL statement
+Wed 09/09/2015  9:30:48.42
+F:\DW\ODS_Job_Control>rem SBSB 
+F:\DW\ODS_Job_Control>psql -h gpv2devsegedw1 -p 5433 -d testtmgdw -U test_edw_etl_svc -w -q -c "select ods.fn_fac_dbo_cmc_sbsb_subsc_vu(substring('AMNY',1,8),null)" 
+NOTICE:  2015-09-09 08:30:48.442169-05: ods.fn_fac_dbo_cmc_sbsb_subsc_vu('AMNY', '<NULL>') for source table s_fac_dbo_cmc_sbsb_subsc_vu
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+, JobStartTime=Wed Sep 09 09:28:07 EDT 2015, JobCompletedTime=Wed Sep 09 10:18:48 EDT 2015, fileName=AMNY_0005192302-09Sep2015-132806_014.log, fileBean=FileBean [date=2015-09-09, jobName=Amny, jobId=5192302], env=TST]
+2015-09-15 16:54:16 [ main:0 ] - [ INFO ] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@191f667c: startup date [Tue Sep 15 16:54:16 EDT 2015]; root of context hierarchy
+2015-09-15 16:54:17 [ main:47 ] - [ INFO ] Loading XML bean definitions from class path resource [applicationContext.xml]
+2015-09-15 16:54:17 [ main:359 ] - [ INFO ] Loading properties file from URL [file:/C:/Users/hma/workspace/ABMonitor/target/classes/jdbc.properties]
+2015-09-15 16:54:17 [ main:873 ] - [ INFO ] Using default implementation for ThreadExecutor
+2015-09-15 16:54:17 [ main:889 ] - [ INFO ] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-09-15 16:54:17 [ main:889 ] - [ INFO ] Quartz Scheduler v.2.2.1 created.
+2015-09-15 16:54:17 [ main:889 ] - [ INFO ] RAMJobStore initialized.
+2015-09-15 16:54:17 [ main:889 ] - [ INFO ] Scheduler meta-data: Quartz Scheduler (v2.2.1) 'SchedulerOne' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-09-15 16:54:17 [ main:889 ] - [ INFO ] Quartz scheduler 'SchedulerOne' initialized from an externally provided properties instance.
+2015-09-15 16:54:17 [ main:889 ] - [ INFO ] Quartz scheduler version: 2.2.1
+2015-09-15 16:54:17 [ main:905 ] - [ INFO ] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@457d9faa
+2015-09-15 16:54:17 [ main:920 ] - [ INFO ] Starting beans in phase 2147483647
+2015-09-15 16:54:17 [ main:920 ] - [ INFO ] Starting Quartz Scheduler now
+2015-09-15 16:54:17 [ main:920 ] - [ INFO ] Scheduler SchedulerOne_$_NON_CLUSTERED started.
+2015-09-15 16:54:18 [ main:1718 ] - [ INFO ] Exception:
+org.postgresql.util.PSQLException: ERROR: duplicate key violates unique constraint "ab_report_pkey"  (seg20 etl4.gphd.local:1027 pid=748413)
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2102)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1835)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:257)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:500)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:388)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:334)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp.insert(GreenplumDAOImp.java:167)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$FastClassBySpringCGLIB$$9e0a77a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:717)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:653)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$EnhancerBySpringCGLIB$$54121193.insert(<generated>)
+	at com.tmg.Action.Main.main(Main.java:61)
+2015-09-15 16:54:18 [ main:1718 ] - [ INFO ] The failed inserted bean is: ProcessFile [failed=true, message=NOTICE:  2015-09-09 08:28:59.214846-05: ods.fn_fac_dbo_cmc_meme_member_ms('AMNY', '<NULL>') for source table s_fac_dbo_cmc_meme_member_ms
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_tran (like cdc.ds_transaction_register) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 92 at SQL statement
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_meme (like cdc.s_fac_dbo_cmc_meme_member_ms) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 93 at SQL statement
+NOTICE:  Log: 41 row(s) inserted into tmp_tran for AMNY client
+NOTICE:  Log: 41 row(s) inserted into tmp_meme for AMNY client
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_person_code_keys -- member table data - SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_person_code_keys -- member table data - meme_medcd_no for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_memeck_prsnids (src_id character varying (10) , src_bigint_key bigint, tgt_bigint_key bigint )on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 256 at SQL statement
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_keys for --MEME_CK for AMNY client
+NOTICE:  Log: 5 row(s) inserted into conv.conversion_person_keys for --SBSB_CK for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_code_value ( src_id character varying(10), src_varchar_key character varying(255), src_typ_key character varying(150), tgt_id character varying(20), tgt_client_id bigint, tgt_type_key character varying(30), tgt_bigint_key bigint, src_sys_rec_id character varying(255), ver bigint, vld_frm_dt timestamptz ) on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 375 at SQL statement
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_code_value_keys--SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_code_value_keys--MEDICAID for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_relation_keys -- member subscriber relation for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_attachment_source_keys for AMNY client
+NOTICE:  Log: 24 row(s) inserted into ods.person_code for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.persons for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_role for AMNY client
+NOTICE:  Log: 0 row(s) inserted into ods.code_value-- ssn for AMNY client
+NOTICE:  Log: 10 row(s) inserted into ods.code_value--medicaid for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_relation for AMNY client
+ERROR:  deadlock detectedERROR:  deadlock detected
+DETAIL:  Process 316186 waits for RowExclusiveLock on relation 59215560 of database 1490942; blocked by process 324668.
+Process 324668 waits for ExclusiveLock on relation 59930623 of database 1490942; blocked by process 316186.
+CONTEXT:  SQL statement "insert into cdc.ds_transaction_register ( trn_id, trn_evnt_typ, pubr_db_id, cmd_id, src_id, trn_evnt_ts, trn_descr, ver ) select trn_id,  $1 , pubr_db_id, cmd_id, src_id, clock_timestamp(), trn_descr, ver from tmp_tran"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 1036 at SQL statement
+Wed 09/09/2015  9:30:48.42
+F:\DW\ODS_Job_Control>rem SBSB 
+F:\DW\ODS_Job_Control>psql -h gpv2devsegedw1 -p 5433 -d testtmgdw -U test_edw_etl_svc -w -q -c "select ods.fn_fac_dbo_cmc_sbsb_subsc_vu(substring('AMNY',1,8),null)" 
+NOTICE:  2015-09-09 08:30:48.442169-05: ods.fn_fac_dbo_cmc_sbsb_subsc_vu('AMNY', '<NULL>') for source table s_fac_dbo_cmc_sbsb_subsc_vu
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+, JobStartTime=Wed Sep 09 09:28:07 EDT 2015, JobCompletedTime=Wed Sep 09 10:18:48 EDT 2015, fileName=AMNY_0005192302-09Sep2015-132806_014.log, fileBean=FileBean [date=2015-09-09, jobName=Amny, jobId=5192302], env=TST]
+2015-09-15 16:54:18 [ main:1733 ] - [ INFO ] AB Monitor Application Started
+2015-09-15 16:55:16 [ main:0 ] - [ INFO ] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@32bd8b9c: startup date [Tue Sep 15 16:55:16 EDT 2015]; root of context hierarchy
+2015-09-15 16:55:16 [ main:31 ] - [ INFO ] Loading XML bean definitions from class path resource [applicationContext.xml]
+2015-09-15 16:55:16 [ main:359 ] - [ INFO ] Loading properties file from URL [file:/C:/Users/hma/workspace/ABMonitor/target/classes/jdbc.properties]
+2015-09-15 16:55:17 [ main:827 ] - [ INFO ] Using default implementation for ThreadExecutor
+2015-09-15 16:55:17 [ main:842 ] - [ INFO ] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-09-15 16:55:17 [ main:842 ] - [ INFO ] Quartz Scheduler v.2.2.1 created.
+2015-09-15 16:55:17 [ main:842 ] - [ INFO ] RAMJobStore initialized.
+2015-09-15 16:55:17 [ main:842 ] - [ INFO ] Scheduler meta-data: Quartz Scheduler (v2.2.1) 'SchedulerOne' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-09-15 16:55:17 [ main:842 ] - [ INFO ] Quartz scheduler 'SchedulerOne' initialized from an externally provided properties instance.
+2015-09-15 16:55:17 [ main:842 ] - [ INFO ] Quartz scheduler version: 2.2.1
+2015-09-15 16:55:17 [ main:842 ] - [ INFO ] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@3a7d758a
+2015-09-15 16:55:17 [ main:858 ] - [ INFO ] Starting beans in phase 2147483647
+2015-09-15 16:55:17 [ main:858 ] - [ INFO ] Starting Quartz Scheduler now
+2015-09-15 16:55:17 [ main:858 ] - [ INFO ] Scheduler SchedulerOne_$_NON_CLUSTERED started.
+2015-09-15 16:55:18 [ main:1716 ] - [ INFO ] Exception:
+org.postgresql.util.PSQLException: ERROR: duplicate key violates unique constraint "ab_report_pkey"  (seg20 etl4.gphd.local:1027 pid=749113)
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2102)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1835)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:257)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:500)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:388)
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeUpdate(AbstractJdbc2Statement.java:334)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:105)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp.insert(GreenplumDAOImp.java:167)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$FastClassBySpringCGLIB$$9e0a77a1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:717)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:653)
+	at com.tmg.greenplum.DAOImp.GreenplumDAOImp$$EnhancerBySpringCGLIB$$fea35380.insert(<generated>)
+	at com.tmg.Action.Main.main(Main.java:61)
+2015-09-15 16:55:18 [ main:1731 ] - [ INFO ] The failed inserted bean is: ProcessFile [failed=true, message=NOTICE:  2015-09-09 08:28:59.214846-05: ods.fn_fac_dbo_cmc_meme_member_ms('AMNY', '<NULL>') for source table s_fac_dbo_cmc_meme_member_ms
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_tran (like cdc.ds_transaction_register) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 92 at SQL statement
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+CONTEXT:  SQL statement "create local temp table tmp_meme (like cdc.s_fac_dbo_cmc_meme_member_ms) on COMMIT DROP"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 93 at SQL statement
+NOTICE:  Log: 41 row(s) inserted into tmp_tran for AMNY client
+NOTICE:  Log: 41 row(s) inserted into tmp_meme for AMNY client
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_person_code_keys -- member table data - SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_person_code_keys -- member table data - meme_medcd_no for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_memeck_prsnids (src_id character varying (10) , src_bigint_key bigint, tgt_bigint_key bigint )on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 256 at SQL statement
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_keys for --MEME_CK for AMNY client
+NOTICE:  Log: 5 row(s) inserted into conv.conversion_person_keys for --SBSB_CK for AMNY client
+NOTICE:  Table doesn't have 'DISTRIBUTED BY' clause -- Using column named 'src_id' as the Greenplum Database data distribution key for this table.
+HINT:  The 'DISTRIBUTED BY' clause determines the distribution of data. Make sure column(s) chosen are the optimal data distribution key to minimize skew.
+CONTEXT:  SQL statement "create temp table temp_code_value ( src_id character varying(10), src_varchar_key character varying(255), src_typ_key character varying(150), tgt_id character varying(20), tgt_client_id bigint, tgt_type_key character varying(30), tgt_bigint_key bigint, src_sys_rec_id character varying(255), ver bigint, vld_frm_dt timestamptz ) on commit drop"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 375 at SQL statement
+NOTICE:  Log: 0 row(s) inserted into conv.conversion_code_value_keys--SSN for AMNY client
+NOTICE:  Log: 10 row(s) inserted into conv.conversion_code_value_keys--MEDICAID for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_person_relation_keys -- member subscriber relation for AMNY client
+NOTICE:  Log: 15 row(s) inserted into conv.conversion_attachment_source_keys for AMNY client
+NOTICE:  Log: 24 row(s) inserted into ods.person_code for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.persons for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_role for AMNY client
+NOTICE:  Log: 0 row(s) inserted into ods.code_value-- ssn for AMNY client
+NOTICE:  Log: 10 row(s) inserted into ods.code_value--medicaid for AMNY client
+NOTICE:  Log: 41 row(s) inserted into ods.person_relation for AMNY client
+ERROR:  deadlock detectedERROR:  deadlock detected
+DETAIL:  Process 316186 waits for RowExclusiveLock on relation 59215560 of database 1490942; blocked by process 324668.
+Process 324668 waits for ExclusiveLock on relation 59930623 of database 1490942; blocked by process 316186.
+CONTEXT:  SQL statement "insert into cdc.ds_transaction_register ( trn_id, trn_evnt_typ, pubr_db_id, cmd_id, src_id, trn_evnt_ts, trn_descr, ver ) select trn_id,  $1 , pubr_db_id, cmd_id, src_id, clock_timestamp(), trn_descr, ver from tmp_tran"
+PL/pgSQL function "fn_fac_dbo_cmc_meme_member_ms" line 1036 at SQL statement
+Wed 09/09/2015  9:30:48.42
+F:\DW\ODS_Job_Control>rem SBSB 
+F:\DW\ODS_Job_Control>psql -h gpv2devsegedw1 -p 5433 -d testtmgdw -U test_edw_etl_svc -w -q -c "select ods.fn_fac_dbo_cmc_sbsb_subsc_vu(substring('AMNY',1,8),null)" 
+NOTICE:  2015-09-09 08:30:48.442169-05: ods.fn_fac_dbo_cmc_sbsb_subsc_vu('AMNY', '<NULL>') for source table s_fac_dbo_cmc_sbsb_subsc_vu
+NOTICE:  Table doesn't have 'distributed by' clause, defaulting to distribution columns from LIKE table
+, JobStartTime=Wed Sep 09 09:28:07 EDT 2015, JobCompletedTime=Wed Sep 09 10:18:48 EDT 2015, fileName=AMNY_0005192302-09Sep2015-132806_014.log, fileBean=FileBean [date=2015-09-09, jobName=Amny, jobId=5192302], env=TST]
+2015-09-15 16:55:18 [ main:1731 ] - [ INFO ] AB Monitor Application Started
+2015-09-15 16:56:12 [ main:0 ] - [ INFO ] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5c8163c6: startup date [Tue Sep 15 16:56:12 EDT 2015]; root of context hierarchy
+2015-09-15 16:56:12 [ main:47 ] - [ INFO ] Loading XML bean definitions from class path resource [applicationContext.xml]
+2015-09-15 16:56:12 [ main:375 ] - [ INFO ] Loading properties file from URL [file:/C:/Users/hma/workspace/ABMonitor/target/classes/jdbc.properties]
+2015-09-15 16:56:12 [ main:843 ] - [ INFO ] Using default implementation for ThreadExecutor
+2015-09-15 16:56:12 [ main:858 ] - [ INFO ] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2015-09-15 16:56:12 [ main:858 ] - [ INFO ] Quartz Scheduler v.2.2.1 created.
+2015-09-15 16:56:12 [ main:874 ] - [ INFO ] RAMJobStore initialized.
+2015-09-15 16:56:12 [ main:874 ] - [ INFO ] Scheduler meta-data: Quartz Scheduler (v2.2.1) 'SchedulerOne' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-09-15 16:56:12 [ main:874 ] - [ INFO ] Quartz scheduler 'SchedulerOne' initialized from an externally provided properties instance.
+2015-09-15 16:56:12 [ main:874 ] - [ INFO ] Quartz scheduler version: 2.2.1
+2015-09-15 16:56:12 [ main:874 ] - [ INFO ] JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@65ca7e4a
+2015-09-15 16:56:12 [ main:889 ] - [ INFO ] Starting beans in phase 2147483647
+2015-09-15 16:56:12 [ main:889 ] - [ INFO ] Starting Quartz Scheduler now
+2015-09-15 16:56:12 [ main:889 ] - [ INFO ] Scheduler SchedulerOne_$_NON_CLUSTERED started.
+2015-09-15 16:56:13 [ main:1701 ] - [ INFO ] AB Monitor Application Started
